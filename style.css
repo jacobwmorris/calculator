@@ -1,3 +1,47 @@
-* {
-    background-color: purple;
+body {
+    background-color: #404040;
+    margin: 0;
+}
+
+.calcBox {
+    background-color: #b0b0d0;
+    text-align: center;
+    width: 400px;
+    margin: 24px;
+    padding: 12px;
+}
+
+.calcBox input {
+    width: 360px;
+    height: 40px;
+    font-size: 20px;
+}
+
+.controls {
+    width: 360px;
+    margin: 0 auto;
+    padding: 12px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+button {
+    width: 80px;
+    height: 80px;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 40px;
+    font-family: monospace;
+}
+
+.numKey {
+    margin: 2px 0;
+    display: inline-block;
+    
+}
+
+.opKey {
+    margin: 4px 0;
+    display: block;
 }

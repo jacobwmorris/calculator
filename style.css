@@ -49,6 +49,12 @@ button {
     border: outset 4px #fac145;
 }
 
+.clearKey {
+    background-color: #ff3333;
+    border: outset 4px #ff0000;
+    font-size: 20px;
+}
+
 .equals {
     background-color: #b1ff7d;
     border: outset 4px #93ff4b;

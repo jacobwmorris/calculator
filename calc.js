@@ -36,7 +36,14 @@ function numKeyPressed(event) {
         return;
     }
 
-    
+    if (keyVal === ".") {
+        if (display.value.search("\\.") === -1) {
+            display.value += ".";
+            newNumber = false;
+        }
+
+        return;
+    }
 
     if (newNumber) {
         display.value = "";
@@ -44,21 +51,9 @@ function numKeyPressed(event) {
     }
     display.value += keyVal;
 }
-/*
-Num
--Start a new number if it is requested, otherwise add to the existing one
-Math
--Store the number in the display
--Set the operator
--Request new number
-Equals
--Operate using the stored number and operator (if they exist)
--Request new number
-Num, Math
--Store displayed number, request new number
-*/
+
 function opKeyPressed(event) {
-    const displayedNum = parseInt(display.value);
+    const displayedNum = parseFloat(display.value);
     const pressed = event.target.textContent;
 
     if (pressed === "=") {
@@ -67,7 +62,7 @@ function opKeyPressed(event) {
     }
 
     if (storedNum !== null && operator) {
-        const displayedNum = parseInt(display.value);
+        const displayedNum = parseFloat(display.value);
         let result = operate(operator, storedNum, displayedNum);
 
         displayResult(result);
@@ -85,7 +80,7 @@ function opKeyPressed(event) {
 
 function equalsPressed() {
     if (storedNum !== null && operator) {
-        const displayedNum = parseInt(display.value);
+        const displayedNum = parseFloat(display.value);
         let result = operate(operator, storedNum, displayedNum);
 
         displayResult(result);
@@ -106,6 +101,7 @@ function displayResult(num) {
     
     if (!isFinite(num)) {
         display.value = "Over 9000";
+        newNumber = true;
         return;
     }
     if (num.toString().length > 16) {

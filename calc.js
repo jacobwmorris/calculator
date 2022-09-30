@@ -19,11 +19,30 @@ let storedNum = null;
 let operator = "";
 
 function numKeyPressed(event) {
+    const keyVal = event.target.textContent;
+
+    if (keyVal === "Back") {
+        if (display.value.length > 1) {
+            display.value = display.value.substr(0, display.value.length - 1);
+        }
+        else {
+            display.value = "0";
+        }
+
+        if (display.value.length === 1 && display.value === "0") {
+            newNumber = true;
+        }
+
+        return;
+    }
+
+    
+
     if (newNumber) {
         display.value = "";
         newNumber = false;
     }
-    display.value += event.target.textContent;
+    display.value += keyVal;
 }
 /*
 Num
